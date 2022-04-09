@@ -1,6 +1,9 @@
-CAMPO_NAME="ConchayToro_test"
+#!/bin/bash -el
+
+
+CAMPO_NAME="Curico"
 VIDEO_FILES="stuff/input_videos/processed/$CAMPO_NAME/*"
-WEIGHTS_FILE="stuff/logs/model_dcomplete_pgrapes_aug/uvas20210128T1517/mask_rcnn_uvas_0020.h5"
+WEIGHTS_FILE="stuff/pretrained_weights/mask_rcnn_uvas_0050.h5"
 PICKLES_DIR="stuff/pickles/$CAMPO_NAME"
 OUTPUT_VIDEO_DIR="stuff/output_videos/$CAMPO_NAME"
 
@@ -12,9 +15,10 @@ do
 	python splash_line_cross.py --weights $WEIGHTS_FILE --video $f --pickles_dir $PICKLES_DIR/ --output_dir $OUTPUT_VIDEO_DIR
     echo "Metadata and predictio video collected."
 done
+
 # # -------MEGA PICKLE-----
-# echo "Generating Mega Pickle"
-# python utils/create_mega_pickle.py --pickles_dir $PICKLES_DIR/
+#echo "Generating Mega Pickle"
+#python utils/create_mega_pickle.py --pickles_dir $PICKLES_DIR/
 
 # # -------GROUP BY CUARTEL ------
 # echo "Grouping by cuartel"
